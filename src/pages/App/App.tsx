@@ -1,16 +1,12 @@
 import React from "react";
 import "./App.css";
-import { Box } from "@mui/material";
+import { Paper } from "@mui/material";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Box
-          sx={{
-            fontFamily: "Icomoon"
-          }}
-        >
+        <Paper>
           <p>
             Edit <code>src/App.tsx</code> and save to reload.
           </p>
@@ -22,7 +18,7 @@ function App() {
           >
             Learn React
           </a>
-        </Box>
+        </Paper>
       </header>
     </div>
   );

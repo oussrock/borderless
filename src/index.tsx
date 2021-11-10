@@ -9,6 +9,8 @@ import { ApiErrorProvider } from "./providers/ApiErrorProvider";
 import reportWebVitals from "./reportWebVitals";
 import theme from "./theme/theme";
 import "./assets/i18n/i18n.ts";
+import "./globals.css";
+import "./fonts.css";
 
 ReactDOM.render(
   <React.StrictMode>
