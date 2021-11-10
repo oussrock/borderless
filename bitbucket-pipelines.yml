@@ -1,0 +1,81 @@
+image: circleci/node:12.13.1-browsers
+
+# ------------------ANCHORS------------------------------- #
+
+definitions:
+  steps:
+    - step: &ci-int
+        name: Build (INT config)
+        caches:
+          - node
+        size: 2x
+        artifacts:
+          - build/**
+        script:
+          - yarn install
+          - yarn build:int
+
+    - step: &ci-uat
+        name: Build (UAT config)
+        caches:
+          - node
+        size: 2x
+        artifacts:
+          - build/**
+        script:
+          - yarn install
+          - yarn build:crt
+
+    - step: &ci-prod
+        name: Build (PROD config)
+        caches:
+          - node
+        size: 2x
+        artifacts:
+          - build/**
+        script:
+          - yarn install
+          - yarn build:prod
+
+    - step: &deploy-env
+        name: Deployment
+        image: atlassian/pipelines-awscli:1.16.185
+        artifacts:
+          - build/**
+        script:
+          - python ci/deploy.py --aws-bucket $BUCKET_URL --env $BITBUCKET_DEPLOYMENT_ENVIRONMENT --dry-run no --out-dir /
+
+    - step: &ci-security-test
+        name: Run Security test
+        caches:
+          - node
+        size: 2x
+        artifacts:
+          - Report/**
+        script:
+          - yarn install
+          - ./ci/security-test/Crewlife_ASoC_Script.sh
+
+# ------------------PIPELINES------------------------------- #
+
+pipelines:
+  branches:
+    develop: # Synchronises the INT environment
+      - step: *ci-int
+      - step:
+          <<: *deploy-env
+          deployment: int
+  custom:
+    uat: # Synchronises the UAT environment
+      - step: *ci-uat
+      - step:
+          <<: *deploy-env
+          deployment: uat
+    prod: # Synchronises the PROD environment
+      - step: *ci-prod
+      - step:
+          <<: *deploy-env
+          deployment: prod
+
+    ci-security-test: # Run security test SAST
+      - step: *ci-security-test
