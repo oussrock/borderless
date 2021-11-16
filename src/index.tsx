@@ -11,6 +11,7 @@ import theme from "./theme/theme";
 import "./assets/i18n/i18n.ts";
 import "./globals.css";
 import "./fonts.css";
+import "./icon-font.css";
 
 ReactDOM.render(
   <React.StrictMode>

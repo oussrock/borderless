@@ -6,7 +6,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Before you start the project make sure env-cmd is installed globally on your computer
 
-### `npm instal -g env-cmd`
+### `yarn global add env-cmd`
+
+Install the project
+
+### `yarn install`
 
 In the project directory, you can run:
 
