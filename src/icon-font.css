@@ -1,0 +1,153 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("../font/icomoon/icomoon.eot");
+  src: url("../font/icomoon/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../font/icomoon/icomoon.ttf") format("truetype"),
+    url("../font/icomoon/icomoon.woff") format("woff"),
+    url("../font/icomoon/icomoon.svg?#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user:before {
+  content: "\e900";
+}
+.icon-windows8:before {
+  content: "\eac2";
+}
+
+.icon-external-link:before {
+  content: "\e901";
+}
+
+.icon-check:before {
+  content: "\e902";
+}
+
+.icon-profile:before {
+  content: "\e906";
+  color: #005078;
+}
+
+.icon-edit:before {
+  content: "\e905";
+  color: #fff;
+}
+
+.icon-edit.gray:before {
+  content: "\e905";
+  color: #97999c;
+  cursor: pointer;
+}
+
+.icon-filter:before {
+  content: "\e904";
+  color: #fff;
+}
+
+.icon-list:before {
+  content: "\e903";
+  color: #005078;
+}
+
+.icon-move:before {
+  content: "\e908";
+  color: #97999c;
+}
+
+.icon-trash:before {
+  content: "\e90b";
+  color: #97999c;
+  cursor: pointer;
+}
+
+.icon-add:before {
+  content: "\e90a";
+  color: #005078;
+}
+
+.icon-full_heart:before {
+  content: "\e909";
+  color: #494f56;
+}
+
+.icon-heart-outline:before {
+  content: "\e90a";
+}
+
+.icon-chevron-thin-down:before {
+  content: "\e907";
+}
+
+.icon-chevron-thin-right:before {
+  content: "\e90c";
+}
+.icon-chevron-thin-left:before {
+  content: "\e90f";
+}
+
+.icon-lock:before {
+  content: "\e911";
+  color: #d8d8d8;
+}
+
+.icon-clock:before {
+  content: "\e910";
+  color: #fff;
+}
+
+.icon-calendar:before {
+  content: "\e912";
+  color: #d8d8d8;
+}
+
+.icon-circle-flight:before {
+  content: "\e90d";
+}
+
+.icon-error-warning:before {
+  content: "\e913";
+  color: #005078;
+}
+
+.icon-action-overflow:before {
+  content: "\e90e";
+  color: #494f56;
+}
+
+.icon-Confirmation-circle:before {
+  content: "\e914";
+}
+
+.icon-Confirmation-circle-green:before {
+  content: "\e914";
+  color: rgba(16, 140, 12, 0.8);
+}
+
+.icon-close:before {
+  content: "\e915";
+}
+
+.icon-sad-emoji:before {
+  content: "\e916";
+}
+
+.icon-email:before {
+  content: "\e917";
+}
