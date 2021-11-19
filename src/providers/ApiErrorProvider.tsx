@@ -2,13 +2,13 @@ import React, { useState, createContext } from "react";
 
 const ApiErrorContext = createContext({
   error: 0,
-  setErrorCode: statusCode => {}
+  setErrorCode: (statusCode: any) => {}
 });
 
-export const ApiErrorProvider = props => {
+export const ApiErrorProvider = (props: any) => {
   const [error, setError] = useState(0);
 
-  const setErrorCode = statusCode => {
+  const setErrorCode = (statusCode: any) => {
     if (error) {
       return;
     }
