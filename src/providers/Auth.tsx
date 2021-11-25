@@ -10,7 +10,7 @@ const AuthContext = createContext({
 });
 const AuthCustomProvider = process.env.REACT_APP_AUTH_PROVIDER;
 
-export const AuthProvider = (props: any) => {
+export const AuthProvider = props => {
   const [user, setUser] = useState<UserInterface | null>(null);
   const [loading, setLoading] = useState(true);
 
