@@ -1,0 +1,70 @@
+
+
+.ac-dialog {
+
+  div[role='dialog'] {
+    padding: 0 2rem;
+    min-width: 80rem;
+    text-align: center;
+    font-size: 1.6rem;
+    max-width: 80rem;
+
+    .icon {
+      margin: 4rem 0 2rem 0;
+      font-weight: 300;
+      font-size: 5.2rem;
+      display: inline-block;
+    }
+
+    .title {
+      font-size: 3.2rem;
+      font-weight: normal;
+    }
+
+    .dialog-content {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      height: auto;
+
+      .description-support {
+        margin-top: 3rem;
+      }
+    }
+
+    .MuiDialogActions-root {
+      justify-content: center;
+      padding: 0.1rem 1rem 2rem 1rem;
+
+
+      .buttons {
+        margin: 2.4rem 0;
+    
+        .MuiButtonBase-root {
+          width: 19.2rem;
+          height: 5rem;
+          border-radius: 0;
+          margin-right: 2.5rem;
+          cursor: pointer;
+          border: black;
+          span {
+            width: 15.7rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 2.4rem;
+          }
+        }
+        .btn-black {
+          background-color: black;
+          span {
+            color: white;
+          }
+        }
+
+        .button-margin{
+          margin-left: 2.4rem;
+        }
+      }
+    }
+  }
+}

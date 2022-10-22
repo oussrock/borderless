@@ -1,0 +1,50 @@
+@import '../_colors.scss';
+
+.MuiButton-root {
+  border-radius: 0rem !important;
+  text-transform: none !important;
+}
+
+.MuiDataGrid-root {
+  border: none !important;
+
+  .MuiDataGrid-row:nth-child(even) {
+    background-color: map-get($palette, 'grey-lighter');
+  }
+
+  .MuiDataGrid-columnHeader:focus,
+  .MuiDataGrid-cell:focus,
+  .MuiDataGrid-columnHeader:focus-within,
+  .MuiDataGrid-cell:focus-within {
+    outline: none !important;
+  }
+
+  .MuiDataGrid-columnHeader {
+    .MuiDataGrid-columnSeparator {
+      svg {
+        display: none;
+      }
+    }
+  }
+}
+
+.filledInput {
+  &  div.MuiSelect-root.MuiSelect-select.MuiSelect-selectMenu.MuiSelect-filled.MuiInputBase-input.MuiFilledInput-input  {
+    background-color: white;
+    padding-bottom: 4px;
+  }
+  & .MuiInputBase-root.MuiFilledInput-root.MuiFilledInput-underline.MuiInputBase-formControl {
+    border-radius: 0;
+    border: 1px solid rgb(216, 216, 216);
+  }
+  & .MuiFilledInput-underline:hover:before {
+    border: none;
+  }
+  & .MuiFilledInput-underline:before {
+    border: none;
+  }
+  & .MuiFilledInput-underline::after {
+    border: none;
+  }
+}
+

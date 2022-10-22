@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,9 +7,15 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {  Button } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
+import AcDialog from "../AcDialog/AcDialog";
 
 
 function Header() {
+  const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+ 
+}
   const rows = [
     { id: 1, col1: "Hello", col2: "World" },
     { id: 2, col1: "XGrid", col2: "is Awesome" },
@@ -18,20 +24,41 @@ function Header() {
     { id: 5, col1: "XGrid", col2: "is Awesome" },
     { id: 6, col1: "Material-UI", col2: "is Amazing" }
   ];
+  const removeSpecialDayOffRequest = async() => {
+   
+    handleClose();
+     
+}
+  const removeData = {
+    title: 'AirWayBill Details',
+    description: `test1`,        
+    actionLabel: 'test',
+    handleAction: handleClose,
   
+    handleSecondaryAction: removeSpecialDayOffRequest,
+}
+const handleOpen= () => setOpen(true);
   const columns = [
-    { field: "id", hide: true },
-    { field: "col1", headerName: "Column 1", width: 150 },
-    { field: "col2", headerName: "Column 2", width: 150 }
+    { field: "id",headerName: "AWB#", width: 150, renderCell: (params) => {
+      return (
+          <p>
+              <div className='table__cell--pilot' >
+             
+                 <a style={{cursor:'pointer'}} onClick={handleOpen}>014-65464206</a>
+              </div>
+              <AcDialog open={open} onClose={handleClose} data={removeData} />
+          </p>
+      )
+  }
+  
+  },
+    { field: "col1", headerName: "Customs Status", width: 150 },
+    { field: "col2", headerName: "Flight #", width: 150 },
+    { field: "col1", headerName: "Departure Time", width: 150 },
+    { field: "col2", headerName: "O & D", width: 150 }
   ];
   const status_codes = ['CLR', 'DNL', 'RFI', 'RFS', 'WTG'];
-  const status_colors = {
-    'CLR': 'green',
-    'DNL': 'red',
-    'RFI': 'orange',
-    'RFS': 'orange',
-    'WTG': 'yellow',
-}
+
   return (
     <>
    <AppBar sx={{ bgcolor: "white" }} position="static">
@@ -87,7 +114,7 @@ function Header() {
         </Toolbar>
       </Container>
     </AppBar>
-    <div style={{ height: 300, width: "100%" }}>
+    <div  style={{ height: 1000, width: "100%", padding:'2rem 10rem 0rem 10rem' }}>
       <DataGrid rows={rows} columns={columns} />
     </div>
     </>
