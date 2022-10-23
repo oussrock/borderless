@@ -14,6 +14,23 @@ import Modal from "@mui/material/Modal";
 import './Header.scss';
 import CloseIcon from '@mui/icons-material/Close';
 import SendIcon from '@mui/icons-material/Send';
+import TextField from '@mui/material/TextField';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import dayjs, { Dayjs } from 'dayjs';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+
+const styleModal = {
+  position: 'absolute' as 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 800,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -62,6 +79,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const bookings = require('./bookings.json');
 
 function Header() {
+  const [Booking, setBooking] = useState(false);
   const [open, setOpen] = useState(false);
   const handleClose = () => {
 
@@ -69,11 +87,20 @@ function Header() {
 
   };
   const handleOpen = () => setOpen(true);
+  const handleOpenBooking = () => setBooking(true);
+  const handleCloseBooking = () => setBooking(false);
   const handleRequest = () => {
 
     setOpen(false);
 
   }
+  // date insert 
+
+const [value, setValue] = React.useState<Dayjs | null>(dayjs('2014-08-18T21:11:54'),);
+
+const handleChange = (newValue: Dayjs | null) => {
+  setValue(newValue);
+};
 
   const rows = bookings.map( (record) => {
     const tp = record["iata:booking:transportMovement"]
@@ -179,11 +206,11 @@ function Header() {
                  
                   <div style={{ display: "flex", flexDirection: "row" }}>
                     <div style={{ fontWeight: '600' }}>Consigner:</div>
-                    <div style={{ paddingLeft: "0.5rem" ,height:'5rem',width:'10rem', overflow:'scroll',overflowWrap:'break-word'}}>YshdjshdjshdkhsakjhdajhsdajhdjashdjakhdjahkjsahjshadjahdjhsjdshjdhsjdhsjdjshdjYZ</div>
+                    <div style={{ paddingLeft: "0.5rem" ,height:'5rem',width:'10rem', overflow:'auto',overflowWrap:'break-word'}}>YshdjshdjshdkhsakjhdajhsdajhdjashdjakhdjahkjsahjshadjahdjhsjdshjdhsjdhsjdjshdjYZ</div>
                   </div>
                   <div style={{ display: "flex", flexDirection: "row" }}>
                     <div style={{ fontWeight: '600' }}>Shipper Detail:</div>
-                    <div style={{ paddingLeft: "0.5rem",height:'5rem',width:'10rem', overflow:'scroll',overflowWrap:'break-word'}}>YYZ</div>
+                    <div style={{ paddingLeft: "0.5rem",height:'5rem',width:'10rem', overflow:'auto',overflowWrap:'break-word'}}>YYZ</div>
                   </div>
                   
 
@@ -284,11 +311,118 @@ function Header() {
            
           </Box>
 
-          <Button variant="outlined" sx={{p: 1, backgroundColor: 'rgb(240,240,240)', color: 'black', border: 'none' }}>
+          <Button onClick={handleOpenBooking} variant="outlined" sx={{p: 1, backgroundColor: 'rgb(240,240,240)', color: 'black', border: 'none' }}>
             Create Booking
           </Button>
 
-    
+          <Modal
+            open={Booking}
+            onClose={handleCloseBooking}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            BackdropProps={{style: {  opacity: 0.5}}}
+          >
+            <Box component="form" 
+                  noValidate
+                  autoComplete="off"
+                  sx={styleModal}>
+              <Typography align="center" id="modal-modal-title" variant="h5" component="h2">
+                Create a Booking 
+              </Typography>
+              <div>
+                <TextField sx={{margin: 2}}
+                  color="info"
+                  id="Origin"
+                  label="Origin"
+                  //defaultValue="YUL"
+                  //helperText="Shipping origine"
+                />
+                <TextField sx={{margin: 2}}
+                  color="info"
+                  id="Destination"
+                  label="Destination"
+                  //defaultValue="FRA"
+                  //helperText="Shipping destination"
+                />
+              </div>
+             
+              <div>
+                <TextField sx={{margin: 2}}
+                  color="info"
+                  id="Flight"
+                  label="Flight #"
+                  //defaultValue="YUL"
+                  //helperText="Shipping origine"
+                />
+                <LocalizationProvider  dateAdapter={AdapterDayjs} >
+                  <DesktopDatePicker 
+                      label="Flight Date"
+                      inputFormat="MM/DD/YYYY"
+                      //value={value}
+                      onChange={handleChange}
+                      renderInput={(params) => <TextField {...params} sx={{width: '41.5%', margin: 2}} />}
+                    />
+                </LocalizationProvider>
+              </div>
+
+              <div>
+                <TextField sx={{margin: 2}}
+                  color="info"
+                  id="Weight"
+                  label="Weight (KG)"
+                  //defaultValue="YUL"
+                  //helperText="Shipping origine"
+                />
+                <TextField sx={{margin: 2}}
+                  color="info"
+                  id="Volume"
+                  label="Volume (CM)"
+                  //defaultValue="FRA"
+                  //helperText="Shipping destination"
+                />
+              </div>
+
+              <div>
+                <TextField sx={{margin: 2}}
+                  color="info"
+                  id="# of pieces"
+                  label="# of pieces"
+                  //defaultValue="FRA"
+                  //helperText="Shipping destination"
+                />
+                <TextField sx={{margin: 2}}
+                  color="info"
+                  id="Cargo Desc"
+                  label="Cargo Desc"
+                  //defaultValue="FRA"
+                  //helperText="Shipping destination"
+                />
+              </div>
+
+              <div>
+                <TextField sx={{margin: 2}}
+                  color="info"
+                  id="Shipper1"
+                  label="Shipper Name"
+                  //defaultValue="FRA"
+                  //helperText="Shipping destination"
+                />
+                <TextField sx={{margin: 2}}
+                  color="info"
+                  id="Shipper2"
+                  label="Shipper Address"
+                  //defaultValue="FRA"
+                  //helperText="Shipping destination"
+                />
+              </div>
+              
+             <div style={{display:'flex', justifyContent:'center'}} >
+              <Button onClick={handleCloseBooking} variant="outlined" color="info" sx={{ fontSize:15, p: 1, backgroundColor: 'White', color: 'blue' }}>
+                  Book
+              </Button>
+              </div>
+            </Box>
+          </Modal>
 
           <Search sx={{fontSize: 10}}>
             <SearchIconWrapper >
