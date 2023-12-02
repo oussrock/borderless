@@ -1,0 +1,1 @@
+yarn global add env-cmd && yarn install && npm install
