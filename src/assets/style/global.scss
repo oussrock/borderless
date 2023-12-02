@@ -1,0 +1,188 @@
+@import './icon-font';
+@import './_colors.scss';
+@import './_variables.scss';
+@import './_mixins.scss';
+@import './_functions.scss';
+@import 'material/overrides';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: map-get($palette, 'black');
+  max-width: 100%;
+}
+
+//remove outline on focus
+input:focus, textarea:focus, select:focus{
+  outline: none;
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 3.2rem;
+  color: map-get($palette, 'neutral-20');
+  padding: 0;
+  margin: 0;
+}
+
+.header-grey {
+  background-color: map-get($palette, 'grey-lighter');
+  padding: 2rem 3.2rem 4rem;
+  margin: 0 -3.2rem;
+  .container {
+    display: flex;
+    align-items: baseline;
+  }
+  h1 {
+    margin: 0 0 1.5rem;
+  }
+  .sub-title {
+    color: map-get($palette, 'grey-tb-header');
+    font-size: 1.8rem;
+    display: inline-flex;
+  }
+
+  .sub-title {
+    & > span {
+      border-left: 2px solid map-get($palette, 'grey-tb-header');
+      text-align: center;
+      padding: 0 0.8rem;
+      box-sizing: border-box;
+    }
+    & > span:first-child {
+      border: none;
+      padding-left: 0;
+    }
+  }
+
+  .new-search-link {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: map-get($palette, 'blue-light');
+    cursor: pointer;
+    margin-left: 2rem;
+
+    .newSearch-icon {
+      margin-bottom: -0.3rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      margin-left: 0.5rem;
+    }
+  }
+}
+.header-content{
+  padding: 1.5rem 4rem 2.375rem 4rem;
+  max-width: 144rem;
+  margin: auto;
+}
+.MuiDataGrid-root  .MuiDataGrid-row.profile-row {
+    background-color: rgba(0, 80, 120, 0.08);
+    color: rgba(0, 80, 120, 1);
+    .icon-profile {
+      font-size: 1.8rem;
+    }
+  }
+
+
+.MuiTypography-body1, 
+.MuiTypography-body2, 
+.MuiDataGrid-root, 
+.MuiButton-root, 
+.MuiTableCell-root, 
+.MuiFormHelperText-root, 
+.MuiInputBase-root,
+.MuiMenuItem-root,
+.MuiTypography-root {
+  font-family: map-get($fonts, "primary") !important;
+}
+
+//Global styles for drop down select input
+.select-dropdown {
+  .MuiFilledInput-root {
+    color: #2a2a2a;
+    font-weight: 600;
+  }
+
+  .MuiInputLabel-shrink {
+      color: #737373;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      margin-left: 1rem;
+      transform: translate(0, 8.5px) scale(0.7);
+      z-index: 1;
+  }
+
+  .MuiInputLabel-root .MuiInputLabel-formControl {
+      top: 0;
+      left: 0;
+      position: absolute;
+      z-index: 1;
+  }
+
+  .MuiFilledInput-root.Mui-focused {
+    background-color: map-get($palette, 'white');
+  }
+
+  .MuiFilledInput-input {
+    padding: 2rem 1.2rem 0.8rem 1rem;
+  }
+
+
+  .MuiSelect-select{
+    &:hover, &:focus {
+      background-color: map-get($palette, 'white');
+    }
+
+  }
+
+  .MuiFilledInput-root {
+    &:focus, &:hover  {
+      background-color: map-get($palette, 'white');
+    }
+  }
+
+  .MuiFormLabel-root {
+    font-family: "Open Sans";
+    color: #737373;
+    font-size: 1.6rem;
+    margin-left: 1rem;
+    z-index: 1;
+    top: -0.5rem;
+  }
+}
+
+.link-states  {
+  &:hover, &:focus {
+    color: map-get($palette, "blue-darker");
+  }
+  &:active {
+    color: map-get($palette, "blue-link");
+  }
+  &:disabled {
+    color: map-get($palette, "grey-button");
+  }
+}

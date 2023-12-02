@@ -1,0 +1,25 @@
+@import "./variables";
+
+@mixin screen-is($size) {
+  $media-query: "";
+  @if $size == desktop {
+    $media-query: '(min-width: #{map-get($breakpoints, "min-desktop")})';
+  } @else if $size == desktop-include-max {
+    $media-query: '(min-width: #{map-get($breakpoints, "min-desktop")}) and (max-width: #{map-get($breakpoints, "min-desktop-large")})';
+  } @else if $size == tablet {
+    $media-query: '(min-width: #{map-get($breakpoints, "min-tablet")}) and (max-width: #{map-get($breakpoints, "max-tablet")})';
+  } @else if $size == ipadView {
+    $media-query: '(max-width: #{map-get($breakpoints, "max-ipad")})';
+  } @else if $size == mobile {
+    $media-query: '(max-width: #{map-get($breakpoints, "max-mobile")})';
+  } @else {
+    @error 'Unknown size #{$size}';
+  }
+
+  @media #{$media-query} {
+    @content;
+  }
+}
+
+
+

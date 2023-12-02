@@ -1,11 +1,12 @@
 import React from "react";
 import "./App.css";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { Paper } from "@mui/material";
-
+import Header from "../../components/Header/Header";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <Paper>
           <p>
             Edit <code>src/App.tsx</code> and save to reload.
@@ -19,7 +20,9 @@ function App() {
             Learn React
           </a>
         </Paper>
-      </header>
+      </header> */}
+      <Header></Header>
+      
     </div>
   );
 }
