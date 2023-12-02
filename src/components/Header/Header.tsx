@@ -358,7 +358,7 @@ const handleChange = (newValue: Dayjs | null) => {
                   <DesktopDatePicker 
                       label="Flight Date"
                       inputFormat="MM/DD/YYYY"
-                      //value={value}
+                      value={value}
                       onChange={handleChange}
                       renderInput={(params) => <TextField {...params} sx={{width: '41.5%', margin: 2}} />}
                     />
