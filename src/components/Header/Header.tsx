@@ -115,8 +115,7 @@ const handleChange = (newValue: Dayjs | null) => {
       col4: tp[departure][code] + "→" + tp[arrival][code]
     }
   });
-   // { id: 6, col1: "Material-UI", col2: "is Amazing",col3:'8:30',col4:'bcd' }
-   // console.log(rows)
+
    const style = {
 
     position: "absolute" as "absolute",
@@ -243,8 +242,6 @@ const handleChange = (newValue: Dayjs | null) => {
       { field: "col1", headerName: "Customs Status", width: 220,
       renderCell: (record) => {
         const status = record.row.col1
-        const color = status_colors[status]
-        console.log(color)
         var cell = <Button sx={{"&.MuiButtonBase-root:hover": {
           background: status_colors[status]
         }, backgroundColor: status_colors[status], fontFamily: 'monospace'}}  variant="contained">{status}</Button>
