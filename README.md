@@ -13,6 +13,6 @@ To import all the dependencies.
 
 In the project directory, you can run:
 
-`yarn run dev`
+`./rundev`
 
 To compile and launch the react app in your [localhost](http://localhost:3000).
